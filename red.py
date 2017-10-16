@@ -318,7 +318,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 """)
         refix_label = 'Prefix'
         INFO = [str(bot.user), "Prefixes: {}".format(prefix_label, " ".join(bot.settings.prefixes)),
-                "Version: {}".format(pkg_resources.get_distribution('Red-DiscordBot').version]
+                "Version: {}".format(pkg_resources.get_distribution('Red-DiscordBot').version)]
         #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         #print("-----------------")
         #cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
