@@ -10,9 +10,6 @@ import subprocess
 import datetime
 import itertools
 import pkg_resources
-from . import data_manager
-from .utils.chat_formatting import inline, bordered
-
 try:
     from discord.ext import commands
     import discord
