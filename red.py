@@ -7,6 +7,7 @@ import logging.handlers
 import traceback
 import datetime
 import subprocess
+import datetime
 
 try:
     from discord.ext import commands
@@ -303,7 +304,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 
         print("-----------------")
         print("""
-        :::::::::  :::::::::: :::::::::                :::::::::  :::::::::::  ::::::::   ::::::::   ::::::::  :::::::::  :::::::::   :::::::::   ::::::::  ::::::::::: 
+:::::::::  :::::::::: :::::::::                :::::::::  :::::::::::  ::::::::   ::::::::   ::::::::  :::::::::  :::::::::   :::::::::   ::::::::  ::::::::::: 
 :+:    :+: :+:        :+:    :+:               :+:    :+:     :+:     :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+:  :+:    :+: :+:    :+:     :+:     
 +:+    +:+ +:+        +:+    +:+               +:+    +:+     +:+     +:+        +:+        +:+    +:+ +:+    +:+ +:+    +:+  +:+    +:+ +:+    +:+     +:+     
 +#++:++#:  +#++:++#   +#+    +:+ +#++:++#++:++ +#+    +:+     +#+     +#++:++#++ +#+        +#+    +:+ +#++:++#:  +#+    +:+  +#++:++#+  +#+    +:+     +#+     
@@ -311,12 +312,11 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 #+#    #+# #+#        #+#    #+#               #+#    #+#     #+#     #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#  #+#    #+# #+#    #+#     #+#     
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########   #########   ########      ###     
 """)
-        print("-----------------")
-        print('Connected as ' + str(bot.user) + 'And owned by ' + str(owner))
+        print('------------------------------Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
+        print('Alive and kicking since' + "mdatetime = {}".format(datetime.datetime.fromtimestamp(mtime)))
         print("\nConnected to:")
-        print("{} servers".format(servers))
-        print("{} channels".format(channels))
-        print("{} users\n".format(users))
+        print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + ' and serving a grand total of...')
+        print("                                   {} users!!!\n".format(users))
         prefix_label = 'Prefix'
         if len(bot.settings.prefixes) > 1:
             prefix_label += 'es'
