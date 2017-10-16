@@ -314,7 +314,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 """)
         print('Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         print("-----------------")
-        mtimest=os.stat('/tmp')    
+        st=os.stat('red.py')    
         mtime=st.st_mtime
         print('Last update to red.py was at: ' + "mdatetime = {}".format(datetime.datetime.fromtimestamp(mtime)))
         print("\nConnected to:")
