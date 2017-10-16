@@ -312,7 +312,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########   #########   ########      ###     
 """
         print("-----------------")
-        print(str(bot.user))
+        print('Connected as ' + str(bot.user) + 'And owned by ' + str(owner))
         print("\nConnected to:")
         print("{} servers".format(servers))
         print("{} channels".format(channels))
@@ -321,7 +321,6 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         if len(bot.settings.prefixes) > 1:
             prefix_label += 'es'
         print("{}: {}".format(prefix_label, " ".join(bot.settings.prefixes)))
-        print("Owner: " + str(owner))
         print("{}/{} active cogs with {} commands".format(
             len(bot.cogs), total_cogs, len(bot.commands)))
         print("-----------------")
