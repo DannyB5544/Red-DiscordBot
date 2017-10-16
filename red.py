@@ -10,8 +10,6 @@ import subprocess
 import datetime
 import itertools
 import pkg_resources
-import .
-from . import data_manager
 from .utils.chat_formatting import inline, bordered
 
 try:
