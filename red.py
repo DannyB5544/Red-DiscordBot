@@ -303,7 +303,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         owner = await set_bot_owner()
 
         print("-----------------")
-        print("""
+        print("""\033[1;31;40m 
 :::::::::  :::::::::: :::::::::                :::::::::  :::::::::::  ::::::::   ::::::::   ::::::::  :::::::::  :::::::::      :::::::::   ::::::::  ::::::::::: 
 :+:    :+: :+:        :+:    :+:               :+:    :+:     :+:     :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+:     :+:    :+: :+:    :+:     :+:     
 +:+    +:+ +:+        +:+    +:+               +:+    +:+     +:+     +:+        +:+        +:+    +:+ +:+    +:+ +:+    +:+     +:+    +:+ +:+    +:+     +:+     
@@ -319,7 +319,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         mtime=st.st_mtime
         print('Last file change was at {}'.format(datetime.datetime.fromtimestamp(mtime)))
         print("\nConnected to:")
-        print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + ' and serving a grand total of...')
+        print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + 'and serving a grand total of...')
         print("{} users!!!\n".format(users))
         prefix_label = 'Prefix'
         if len(bot.settings.prefixes) > 1:
