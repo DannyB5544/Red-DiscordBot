@@ -8,6 +8,10 @@ import traceback
 import datetime
 import subprocess
 import datetime
+import itertools
+import pkg_resources
+from . import data_manager
+from .utils.chat_formatting import inline, bordered
 
 try:
     from discord.ext import commands
@@ -312,22 +316,25 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 #+#    #+# #+#        #+#    #+#               #+#    #+#     #+#     #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#     #+#    #+# #+#    #+#     #+#     
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########      #########   ########      ###     
 """)
-        print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
-        print("-----------------")
-        cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
-        st=os.stat(cwd)  #Worth noting it also counts cog installs and .json tweaks, I'll fix that eventually.
-        mtime=st.st_mtime
-        print('Last file change was at {}'.format(datetime.datetime.fromtimestamp(mtime)))
-        print("\nConnected to:")
-        print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + 'and serving a grand total of...')
-        print("{} users!!!\n".format(users))
+        refix_label = 'Prefix'
+        INFO = [str(bot.user), "Prefixes: {}".format(prefix_label, " ".join(bot.settings.prefixes)),
+                "Version: {}".format(pkg_resources.get_distribution('Red-DiscordBot').version]
+        #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
+        #print("-----------------")
+        #cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
+        #st=os.stat(cwd)  #Worth noting it also counts cog installs and .json tweaks, I'll fix that eventually.
+        #mtime=st.st_mtime
+        #print('Last file change was at {}'.format(datetime.datetime.fromtimestamp(mtime)))
+        #print("\nConnected to:")
+        #print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + 'and serving a grand total of...')
+        #print("{} users!!!\n".format(users))
         prefix_label = 'Prefix'
-        if len(bot.settings.prefixes) > 1:
-            prefix_label += 'es'
-        print("{}: {}".format(prefix_label, " ".join(bot.settings.prefixes)))
-        print("{}/{} active cogs with {} commands".format(
-            len(bot.cogs), total_cogs, len(bot.commands)))
-        print("-----------------")
+        #if len(bot.settings.prefixes) > 1:
+        #    prefix_label += 'es'
+        #print("{}: {}".format(prefix_label, " ".join(bot.settings.prefixes)))
+        #print("{}/{} active cogs with {} commands".format(
+        #    len(bot.cogs), total_cogs, len(bot.commands)))
+        #print("-----------------")
 
         if bot.settings.token and not bot.settings.self_bot:
             print("\nUse this url to bring your bot to a server:")
