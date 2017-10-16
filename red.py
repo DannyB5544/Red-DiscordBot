@@ -22,6 +22,11 @@ except ImportError:
           "and do ALL the steps in order.\n"
           "https://twentysix26.github.io/Red-Docs/\n")
     sys.exit(1)
+try:
+    from terminaltables import SingleTable
+except ImportError:
+    print(""" TerminalTables is not installed.
+    install it via 'pip install terminaltables' """)
 
 from cogs.utils.settings import Settings
 from cogs.utils.dataIO import dataIO
