@@ -314,12 +314,13 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 """)
         print('Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         print("-----------------")
-        st=os.stat('red.py')    
+        cwd = os.getcwd()
+        st=os.stat(cwd)    
         mtime=st.st_mtime
-        print('Last update to red.py was at: ' + "mdatetime = {}".format(datetime.datetime.fromtimestamp(mtime)))
+        print('Last update to red.py was at {}'.format(datetime.datetime.fromtimestamp(mtime)))
         print("\nConnected to:")
         print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + ' and serving a grand total of...')
-        print("                                   {} users!!!\n".format(users))
+        print("{} users!!!\n".format(users))
         prefix_label = 'Prefix'
         if len(bot.settings.prefixes) > 1:
             prefix_label += 'es'
