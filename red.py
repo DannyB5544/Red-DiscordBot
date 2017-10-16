@@ -303,7 +303,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         owner = await set_bot_owner()
 
         print("-----------------")
-        print("""\033[1;31;0m 
+        print("""\033[1;37;40m 
 :::::::::  :::::::::: :::::::::                :::::::::  :::::::::::  ::::::::   ::::::::   ::::::::  :::::::::  :::::::::      :::::::::   ::::::::  ::::::::::: 
 :+:    :+: :+:        :+:    :+:               :+:    :+:     :+:     :+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:    :+:     :+:    :+: :+:    :+:     :+:     
 +:+    +:+ +:+        +:+    +:+               +:+    +:+     +:+     +:+        +:+        +:+    +:+ +:+    +:+ +:+    +:+     +:+    +:+ +:+    +:+     +:+     
@@ -312,7 +312,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 #+#    #+# #+#        #+#    #+#               #+#    #+#     #+#     #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#     #+#    #+# #+#    #+#     #+#     
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########      #########   ########      ###     
 """)
-        print('Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
+        print('\033[1;31;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         print("-----------------")
         cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
         st=os.stat(cwd)  #Worth noting it also counts cog installs and .json tweaks, I'll fix that eventually.
