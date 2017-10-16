@@ -312,8 +312,11 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 #+#    #+# #+#        #+#    #+#               #+#    #+#     #+#     #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#  #+#    #+# #+#    #+#     #+#     
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########   #########   ########      ###     
 """)
-        print('------------------------------Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
-        print('Alive and kicking since' + "mdatetime = {}".format(datetime.datetime.fromtimestamp(mtime)))
+        print('Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
+        print("-----------------")
+        mtimest=os.stat('/tmp')    
+        mtime=st.st_mtime
+        print('Last update to red.py was at: ' + "mdatetime = {}".format(datetime.datetime.fromtimestamp(mtime)))
         print("\nConnected to:")
         print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + ' and serving a grand total of...')
         print("                                   {} users!!!\n".format(users))
