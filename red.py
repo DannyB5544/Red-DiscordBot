@@ -24,6 +24,7 @@ try:
 except ImportError:
     print(""" TerminalTables is not installed.
     install it via 'pip install terminaltables' """)
+    sys.exit(1)
 
 from cogs.utils.settings import Settings
 from cogs.utils.dataIO import dataIO
@@ -318,9 +319,30 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 #+#    #+# #+#        #+#    #+#               #+#    #+#     #+#     #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#     #+#    #+# #+#    #+#     #+#     
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########      #########   ########      ###     
 """)
-        refix_label = 'Prefix'
-        INFO = [str(bot.user), "Prefixes: {}".format(prefix_label, " ".join(bot.settings.prefixes)),
-                "Version: {}".format(pkg_resources.get_distribution('Red-DiscordBot').version)]
+        prefix_label = "Prefix" #pre-prep for tables
+        if len(bot.settings.prefixes) > 1:
+            prefix_label += 'es'
+        pipcheck = ('\o33[1;32;40m ✓ Pip \n') #fills in the positive table side.
+        print = ('\033[1;30;40m ') #THESE LINES HERE ARE IMPORTANT TO NOT BREAKING THE COLOUR SYSTEM.
+        discordcheck= ('\o33[1;32;40m ✓ discord.py \n') #assuming the installation didn't fail, these all should stay green.
+        print = ('\033[1;30;40m ') 
+        try:
+            subprocess.call("pip3")
+        except OSError as e:
+            if errno == os.errno.ENOENT:
+                pipcheck = ('\033[1;33;40m ⚠ Wrong pip? \n')
+                try:
+                    subprocess.call("pip")
+                except OSError as e:
+                    pipcheck = ('\033[1;31;40m X no pip!')
+                else:
+                    print('Unknown error while checking for pip.')
+                    pipcheck = 
+        DATA = (
+            ('Info' , 'Dependencies').
+            ('{} = {}'.format(prefix_label, " ".join(bot.settings.prefixes) , pipcheck),
+            (pipcheck, discordcheck)
+            )
         #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         #print("-----------------")
         #cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
