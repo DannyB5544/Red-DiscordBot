@@ -319,25 +319,28 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 #+#    #+# #+#        #+#    #+#               #+#    #+#     #+#     #+#    #+# #+#    #+# #+#    #+# #+#    #+# #+#    #+#     #+#    #+# #+#    #+#     #+#     
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########      #########   ########      ###     
 """)
+        print('\033[1;30;40m ')
         prefix_label = "Prefix" #pre-prep for tables
         if len(bot.settings.prefixes) > 1:
             prefix_label += 'es'
         pipcheck = ('\o33[1;32;40m ✓ Pip \n') #fills in the positive table side.
-        print = ('\033[1;30;40m ') #THESE LINES HERE ARE IMPORTANT TO NOT BREAKING THE COLOUR SYSTEM.
+        print('\033[1;30;40m ') #THESE LINES HERE ARE IMPORTANT TO NOT BREAKING THE COLOUR SYSTEM.
         discordcheck= ('\o33[1;32;40m ✓ discord.py \n') #assuming the installation didn't fail, these all should stay green.
-        print = ('\033[1;30;40m ') 
+        print('\033[1;30;40m ') 
         try:
             subprocess.call("pip3")
         except OSError as e:
             if errno == os.errno.ENOENT:
                 pipcheck = ('\033[1;33;40m ⚠ Wrong pip? \n')
+                print('\033[1;30;40m ')
                 try:
                     subprocess.call("pip")
                 except OSError as e:
                     pipcheck = ('\033[1;31;40m X no pip!')
+                    print('\033[1;30;40m ')
                 else:
                     print('Unknown error while checking for pip.')
-                    pipcheck = 
+                    pipcheck = ('Pip status Unknown')
         DATA = (
             ('Info' , 'Dependencies').
             ('{} = {}'.format(prefix_label, " ".join(bot.settings.prefixes) , pipcheck),
