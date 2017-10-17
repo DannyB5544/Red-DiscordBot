@@ -342,7 +342,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
                     print('Unknown error while checking for pip.')
                     pipcheck = ('Pip status Unknown')
         DATA = (
-            ('Info' , 'Dependencies').
+            ('Info' , 'Dependencies'),
             ('Prefix(es) = {}'.format(bot.settings.prefixes) , pipcheck),
             (pipcheck, discordcheck)
             )
