@@ -333,11 +333,11 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
             (pipcheck, discordcheck)
             )
         def no():
-        title = "test"
-        table_instance = AsciiTable(DATA, title)
-        table_instance.justify_columns[2] = 'right'
-        print(table_instance.table)
-        print()
+            title = "test"
+            table_instance = AsciiTable(DATA, title)
+            table_instance.justify_columns[2] = 'right'
+            print(table_instance.table)
+            print()
         #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         #print("-----------------")
         #cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
