@@ -343,7 +343,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
                     pipcheck = ('Pip status Unknown')
         DATA = (
             ('Info' , 'Dependencies').
-            ('{} = {}'.format(prefix_label, " ".join(bot.settings.prefixes) , pipcheck),
+            ('Prefix(es) = {}'.format(bot.settings.prefixes) , pipcheck),
             (pipcheck, discordcheck)
             )
         #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
