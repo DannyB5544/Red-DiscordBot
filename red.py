@@ -332,7 +332,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
             ('Prefix(es) = {}'.format(bot.settings.prefixes) , pipcheck),
             (pipcheck, discordcheck)
             )
-        def no()
+        def no():
         title = "test"
         table_instance = AsciiTable(DATA, title)
         table_instance.justify_columns[2] = 'right'
