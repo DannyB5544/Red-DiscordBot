@@ -320,40 +320,22 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 ###    ### ########## #########                #########  ###########  ########   ########   ########  ###    ### #########      #########   ########      ###     
 """)
         print('\033[1;30;40m ')
-        prefix_label = "Prefix" #pre-prep for tables
+        print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
+        print("-----------------")
+        cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
+        st=os.stat(cwd)  #Worth noting it also counts cog installs and .json tweaks, I'll fix that eventually.
+        mtime=st.st_mtime
+        print('Last file change was at {}'.format(datetime.datetime.fromtimestamp(mtime)))
+        print("\nConnected to:")
+        print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + 'and serving a grand total of...')
+        print("{} users!!!\n".format(users))
+        prefix_label = 'Prefix'
         if len(bot.settings.prefixes) > 1:
             prefix_label += 'es'
-        pipcheck = ('\o33[1;32;40m ✓ Pip \n') #fills in the positive table side.
-        print('\033[1;30;40m ') #THESE LINES HERE ARE IMPORTANT TO NOT BREAKING THE COLOUR SYSTEM.
-        discordcheck= ('\o33[1;32;40m ✓ discord.py \n') #assuming the installation didn't fail, these all should stay green.
-        print('\033[1;30;40m ')
-        DATA = (
-            ('Info' , 'Dependencies'),
-            ('Prefix(es) = {}'.format(bot.settings.prefixes) , pipcheck),
-            (pipcheck, discordcheck)
-            )
-        def no():
-            title = "test"
-            table_instance = AsciiTable(DATA, title)
-            table_instance.justify_columns[2] = 'right'
-            print(table_instance.table)
-            print()
-        #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
-        #print("-----------------")
-        #cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
-        #st=os.stat(cwd)  #Worth noting it also counts cog installs and .json tweaks, I'll fix that eventually.
-        #mtime=st.st_mtime
-        #print('Last file change was at {}'.format(datetime.datetime.fromtimestamp(mtime)))
-        #print("\nConnected to:")
-        #print("{} servers, ".format(servers) + 'which includes {} channels, '.format(channels) + 'and serving a grand total of...')
-        #print("{} users!!!\n".format(users))
-        prefix_label = 'Prefix'
-        #if len(bot.settings.prefixes) > 1:
-        #    prefix_label += 'es'
-        #print("{}: {}".format(prefix_label, " ".join(bot.settings.prefixes)))
-        #print("{}/{} active cogs with {} commands".format(
-        #    len(bot.cogs), total_cogs, len(bot.commands)))
-        #print("-----------------")
+        print("{}: {}".format(prefix_label, " ".join(bot.settings.prefixes)))
+        print("{}/{} active cogs with {} commands".format(
+            len(bot.cogs), total_cogs, len(bot.commands)))
+        print("-----------------")
 
         if bot.settings.token and not bot.settings.self_bot:
             print("\nUse this url to bring your bot to a server:")
