@@ -326,26 +326,18 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         pipcheck = ('\o33[1;32;40m ✓ Pip \n') #fills in the positive table side.
         print('\033[1;30;40m ') #THESE LINES HERE ARE IMPORTANT TO NOT BREAKING THE COLOUR SYSTEM.
         discordcheck= ('\o33[1;32;40m ✓ discord.py \n') #assuming the installation didn't fail, these all should stay green.
-        print('\033[1;30;40m ') 
-        try:
-            subprocess.call("pip3")
-        except OSError as e:
-            if errno == os.errno.ENOENT:
-                pipcheck = ('\033[1;33;40m ⚠ Wrong pip? \n')
-                print('\033[1;30;40m ')
-                try:
-                    subprocess.call("pip")
-                except OSError as e:
-                    pipcheck = ('\033[1;31;40m X no pip!')
-                    print('\033[1;30;40m ')
-                else:
-                    print('Unknown error while checking for pip.')
-                    pipcheck = ('Pip status Unknown')
+        print('\033[1;30;40m ')
         DATA = (
             ('Info' , 'Dependencies'),
             ('Prefix(es) = {}'.format(bot.settings.prefixes) , pipcheck),
             (pipcheck, discordcheck)
             )
+        def no()
+        title = "test"
+        table_instance = AsciiTable(DATA, title)
+        table_instance.justify_columns[2] = 'right'
+        print(table_instance.table)
+        print()
         #print('\033[1;37;40m Connected as ' + str(bot.user) + ' and owned by ' + str(owner))
         #print("-----------------")
         #cwd = os.getcwd()#gets last update time by checking when the folder red is in was last modified
